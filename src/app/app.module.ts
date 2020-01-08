@@ -12,12 +12,16 @@ import { NgRedux, NgReduxModule } from '@angular-redux/store';
 import { rootReducer, INITIAL_STATE } from './store'
 import { IGifs } from './interfaces';
 import { HttpClientModule } from '@angular/common/http';
+import { HomepageComponent } from './homepage/homepage.component';
+import { DetailspageComponent } from './detailspage/detailspage.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchFieldComponent,
-    ResultsListComponent
+    ResultsListComponent,
+    HomepageComponent,
+    DetailspageComponent
   ],
   imports: [
     BrowserModule,
