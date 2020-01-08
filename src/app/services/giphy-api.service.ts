@@ -10,6 +10,7 @@ export class GiphyApiService {
 	constructor(private httpClient: HttpClient) { }
 	
 	public getImages(searchTerm){
-		return this.httpClient.get(`https://api.giphy.com/v1/gifs/search?api_key=${this.API_KEY}&q=${searchTerm}&limit=25&offset=0&rating=G&lang=en`)
+		let randomNumber = Math.floor(10 * Math.random())
+		return this.httpClient.get(`https://api.giphy.com/v1/gifs/search?api_key=${this.API_KEY}&q=${searchTerm}&limit=25&offset=${randomNumber}&rating=G&lang=en`)
 	}
 }
