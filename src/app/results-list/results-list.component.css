@@ -1,0 +1,26 @@
+.gif{
+	width: 300px;
+	height: 300px;
+	object-fit: contain;
+	padding:2px;
+	border: 1px solid rgba(0, 0, 0, 0.14);
+	border-radius: 5px;
+}
+
+.gif-card{
+	margin-bottom: 20px;
+	min-height: 450px;
+}
+
+.card {
+	margin: auto;
+	width: 300px;
+}
+
+.card-title{
+	min-height:40px;
+}
+
+#results-list{
+	margin-top: 50px;
+}

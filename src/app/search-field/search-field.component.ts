@@ -5,22 +5,43 @@ import { ADD_GIFS } from '../actions';
 import { GiphyApiService } from '../services/giphy-api.service';
 
 @Component({
-    selector: 'app-search-field',
-    templateUrl: './search-field.component.html',
-    styleUrls: ['./search-field.component.css']
+	selector: 'app-search-field',
+	templateUrl: './search-field.component.html',
+	styleUrls: ['./search-field.component.css']
 })
 export class SearchFieldComponent implements OnInit {
-		name = 'Search Field';
-		
-    constructor(private apiService: GiphyApiService ) {
-    }
+	name = 'Search Field';
+	searchText: string = "Ryan Gosling";
+	previousSearchItem = "";
 
-    ngOnInit() {
+
+	constructor(private apiService: GiphyApiService, private ngRedux: NgRedux<IGifs>) {
+	}
+
+	ngOnInit() {
+	}
+
+	onSubmit() {
+		console.log(this.searchText);
+		if (this.searchText === "") {
+			console.log("Nope");
+			document.querySelector("#giphy-search").style.borderColor = "red";
+			setTimeout(() => {
+				document.querySelector("#giphy-search").style.borderColor = "#66afe9";
+			}, 3000);
+			return;
 		}
+		console.log('Call API');
 		
-		onSubmit() {
-			this.apiService.getImages().subscribe((res) => {
-				console.log(res);
+		this.apiService.getImages(this.searchText).subscribe((res) => {
+			console.log(res);
+
+			this.ngRedux.dispatch({
+				type: ADD_GIFS,
+				gifs: {
+					gifs: res.data
+				}
 			})
-		}
+		})
+	}
 }
