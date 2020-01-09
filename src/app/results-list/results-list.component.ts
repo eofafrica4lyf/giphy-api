@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { select } from '@angular-redux/store';
+import { Observable } from 'rxjs';
+import { IGifs } from '../interfaces';
 
 @Component({
 	selector: 'app-results-list',
@@ -7,9 +9,16 @@ import { select } from '@angular-redux/store';
 	styleUrls: ['./results-list.component.css']
 })
 export class ResultsListComponent implements OnInit {
-	@select() gifs
+	@select('gifs') gifs : Observable<IGifs>
+	// public storageData;
+	public pulledFromApi:boolean = true;
 
-	ngOnInit() {
+	ngOnInit() {		
+		// if(localStorage.getItem('currentSet')){
+		// 	this.storageData = JSON.parse(localStorage.getItem('currentSet'));
+		// }
+		// console.log(this.storageData);
+		
 	}
 
 }

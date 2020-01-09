@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { select } from '@angular-redux/store';
+import { Observable } from 'rxjs';
+import { IGifs } from '../interfaces';
 
 @Component({
 	selector: 'app-detailspage',
@@ -8,7 +10,7 @@ import { select } from '@angular-redux/store';
 	styleUrls: ['./detailspage.component.css']
 })
 export class DetailspageComponent implements OnInit {
-	@select() gifs;
+	@select('gifs') gifs: Observable<IGifs>
 
 	public id: string;
 	public GifDetails;
@@ -16,22 +18,13 @@ export class DetailspageComponent implements OnInit {
 	constructor(private route: ActivatedRoute) { }
 
 	ngOnInit() {
-		this.GifDetails = this.gifs;
-		console.log('this.GifDetails');
-		console.log(this.gifs);
-		
+		let wholeData = JSON.parse(localStorage.getItem('currentSet'));		
+
 		this.id = this.route.snapshot.paramMap.get('id');
 
-	}
-
-	find(gifs, id) {
-		console.log(gifs);
-		console.log(id);
-
-		// gifs.find(gif => {
-		// 	return gif.id === id;
-		// })
-		return "Whatever";
+		this.GifDetails = wholeData.find(gif => {
+			return gif.id === this.id;
+		})
 	}
 
 }
