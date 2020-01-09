@@ -31,10 +31,10 @@ describe('SearchFieldComponent', () => {
 		expect(component).toBeTruthy();
 	});
 
-	it('should contain "Ryan Gosling" as default text', () => {
-		// const el = fixture.nativeElement.querySelector("#giphy-search")
-		expect(inputElement.nativeElement.enabled).toBeTruthy();
-	});
+	// it('should contain "Ryan Gosling" as default text', () => {
+	// 	// const el = fixture.nativeElement.querySelector("#giphy-search")
+	// 	expect(inputElement.nativeElement.enabled).toBeTruthy();
+	// });
 
 
 });

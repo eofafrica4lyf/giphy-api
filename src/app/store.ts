@@ -12,8 +12,6 @@ export function rootReducer(state, action) {
 			return Object.assign({}, state, action.gifs)
 
 		case ADD_MORE_GIFS:
-			console.log(state)
-			console.log(action)
 			return { gifs: [...state.gifs, ...action.gifs.gifs] }
 
 		default:

@@ -18,14 +18,11 @@ export class MoreGifsComponent implements OnInit {
 	}
 
 	onSubmit() {
-		console.log("More!!!");
 
 		let offset = (parseInt(localStorage.offset) || 0) + 24;
 		let searchText = localStorage.searchText
-		console.log("offset", offset);
 
 		this.apiService.getImages(searchText, offset).subscribe((res: Res) => {
-			// console.log(res);
 			localStorage.clear();
 			this.ngRedux.dispatch({
 				type: ADD_MORE_GIFS,

@@ -17,26 +17,26 @@ import { DetailspageComponent } from './detailspage/detailspage.component';
 import { MoreGifsComponent } from './more-gifs/more-gifs.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SearchFieldComponent,
-    ResultsListComponent,
-    HomepageComponent,
-    DetailspageComponent,
-    MoreGifsComponent
-  ],
-  imports: [
-    BrowserModule,
+	declarations: [
+		AppComponent,
+		SearchFieldComponent,
+		ResultsListComponent,
+		HomepageComponent,
+		DetailspageComponent,
+		MoreGifsComponent
+	],
+	imports: [
+		BrowserModule,
 		AppRoutingModule,
 		FormsModule,
 		NgReduxModule,
 		HttpClientModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+	],
+	providers: [],
+	bootstrap: [AppComponent]
 })
-export class AppModule { 
-	constructor(ngRedux: NgRedux<IGifs>){
+export class AppModule {
+	constructor(ngRedux: NgRedux<IGifs>) {
 		ngRedux.configureStore(rootReducer, INITIAL_STATE);
 	}
 }

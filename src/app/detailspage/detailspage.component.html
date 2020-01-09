@@ -1,28 +1,32 @@
-<h4>
-	<a [routerLink]="['']">
-		Home Page
-	</a>
-</h4>
+<div>
 
-<h2>
-	{{ this.GifDetails.title }}
-</h2>
-
-
-<div id="{{this.id}}" class="col-xs-12 col-sm-6 col-md-4 gif-card">
-	<div class="card">
-		<img src="{{this.GifDetails.images.original.url}}" class="card-img-top gif" alt="{{this.GifDetails.title}}">
-		<div class="card-body">
-			<!-- <h5 class="card-title">{{ this.GifDetails.title }}</h5> -->
-			<br />
-			<hr />
-			<h4>Details</h4>
-			<p><em>URL: </em> <a href="{{this.GifDetails.url}}">{{this.GifDetails.url || "N/A"}}</a> </p>
-			<p><em>Embed URL: </em> <a href="{{this.GifDetails.embed_url}}">{{this.GifDetails.embed_url || "N/A"}}</a> </p>
-			<p><em>Source: </em> <a href="{{this.GifDetails.source}}">{{this.GifDetails.source || "N/A"}}</a> </p>
-			<p><em>Bitly URL: </em> <a href="{{this.GifDetails.bitly_url}}">{{this.GifDetails.bitly_gif_url || "N/A"}}</a>
-			</p>
-			<p><em>Trending DateTime: </em> {{ this.GifDetails.trending_datetime || "N/A"}} </p>
+	<h4>
+		<a [routerLink]="['']">
+			Home Page
+		</a>
+	</h4>
+	
+	<h2>
+		{{ this.GifDetails.title }}
+	</h2>
+	
+	
+	<div id="{{this.id}}" class="col-xs-12 col-sm-6 col-md-4 gif-card">
+		<div class="card">
+			<img src="{{this.GifDetails.images.original.url}}" class="card-img-top gif" alt="{{this.GifDetails.title}}">
+			<div class="card-body">
+				<!-- <h5 class="card-title">{{ this.GifDetails.title }}</h5> -->
+				<br />
+				<hr />
+				<h4>Details</h4>
+				<p><em>URL: </em> <a href="{{this.GifDetails.url}}">{{this.GifDetails.url || "N/A"}}</a> </p>
+				<p><em>Embed URL: </em> <a href="{{this.GifDetails.embed_url}}">{{this.GifDetails.embed_url || "N/A"}}</a> </p>
+				<p><em>Source: </em> <a href="{{this.GifDetails.source}}">{{this.GifDetails.source || "N/A"}}</a> </p>
+				<p><em>Bitly URL: </em> <a href="{{this.GifDetails.bitly_url}}">{{this.GifDetails.bitly_gif_url || "N/A"}}</a>
+				</p>
+				<p><em>Trending DateTime: </em> {{ this.GifDetails.trending_datetime || "N/A"}} </p>
+			</div>
 		</div>
 	</div>
+	
 </div>

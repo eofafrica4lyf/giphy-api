@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { select } from '@angular-redux/store';
 import { Observable } from 'rxjs';
@@ -18,7 +18,7 @@ export class DetailspageComponent implements OnInit {
 	constructor(private route: ActivatedRoute) { }
 
 	ngOnInit() {
-		let wholeData = JSON.parse(localStorage.getItem('currentSet'));		
+		let wholeData:IGifs = JSON.parse(localStorage.getItem('currentSet'));		
 
 		this.id = this.route.snapshot.paramMap.get('id');
 
