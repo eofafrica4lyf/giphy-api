@@ -14,6 +14,7 @@ import { IGifs } from './interfaces';
 import { HttpClientModule } from '@angular/common/http';
 import { HomepageComponent } from './homepage/homepage.component';
 import { DetailspageComponent } from './detailspage/detailspage.component';
+import { MoreGifsComponent } from './more-gifs/more-gifs.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { DetailspageComponent } from './detailspage/detailspage.component';
     SearchFieldComponent,
     ResultsListComponent,
     HomepageComponent,
-    DetailspageComponent
+    DetailspageComponent,
+    MoreGifsComponent
   ],
   imports: [
     BrowserModule,

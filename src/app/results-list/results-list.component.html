@@ -1,12 +1,10 @@
 <div class="row" id="results-list">
 	<!-- Implement result list here -->
-	<h1 *ngIf='gif'>
+	<h1 *ngIf='(gifs | async).length' class='text-center'>
 		Results List
 	</h1>
 	<!-- <div *ngIf="(gifs | async).length > 0"> -->
-	<h3>One</h3>
-	<div *ngFor="let gif of ( (gifs | async) )" id="{{gif.id}}"
-		class="col-xs-12 col-sm-6 col-md-4 gif-card">
+	<div *ngFor="let gif of ( (gifs | async) )" id="{{gif.id}}" class="col-xs-12 col-sm-6 col-md-4 gif-card">
 		<a href="/gif/{{gif.id}}">
 			<div class="card">
 				<img src="{{gif.images.original.url}}" class="card-img-top gif" alt="{{gif.title}}">
@@ -36,4 +34,5 @@
 
 
 
+	<app-more-gifs  *ngIf='(gifs | async).length'></app-more-gifs>
 </div>

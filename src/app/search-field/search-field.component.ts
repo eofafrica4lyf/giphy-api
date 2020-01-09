@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgRedux } from '@angular-redux/store';
-import { IGifs } from '../interfaces';
+import { IGifs, Res } from '../interfaces';
 import { ADD_GIFS } from '../actions';
 import { GiphyApiService } from '../services/giphy-api.service';
 
@@ -22,19 +22,15 @@ export class SearchFieldComponent implements OnInit {
 	}
 
 	onSubmit() {
-		// console.log(this.searchText);
 		if (this.searchText === "") {
-			// console.log("Nope");
 			document.querySelector<HTMLElement>("#giphy-search").style.borderColor = "red";
 			setTimeout(() => {
 				document.querySelector<HTMLElement>("#giphy-search").style.borderColor = "#66afe9";
 			}, 3000);
 			return;
 		}
-		// console.log('Call API');
 		
-		this.apiService.getImages(this.searchText).subscribe((res: Res) => {
-			// console.log(res);
+		this.apiService.getImages(this.searchText, 0).subscribe((res: Res) => {
 			localStorage.clear();
 			this.ngRedux.dispatch({
 				type: ADD_GIFS,
@@ -43,11 +39,11 @@ export class SearchFieldComponent implements OnInit {
 				}
 			})
 			setTimeout(() => {}, 3000);
+			localStorage.setItem('offset', JSON.stringify(0))
+			localStorage.setItem('searchText', this.searchText)
 			localStorage.setItem('currentSet', JSON.stringify(res.data))
 		})
 	}
 }
 
-interface Res{
-	data: object;
-}
+

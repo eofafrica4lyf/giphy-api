@@ -7,3 +7,7 @@ export interface IGifs {
 interface IGif {
 	id: string
 }
+
+export interface Res{
+	data: object;
+}

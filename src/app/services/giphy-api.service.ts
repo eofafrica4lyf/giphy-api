@@ -9,8 +9,7 @@ export class GiphyApiService {
 	
 	constructor(private httpClient: HttpClient) { }
 	
-	public getImages(searchTerm){
-		let randomNumber = 0;
-		return this.httpClient.get(`https://api.giphy.com/v1/gifs/search?api_key=${this.API_KEY}&q=${searchTerm}&limit=24&offset=${randomNumber}&rating=G&lang=en`)
+	public getImages(searchTerm, offset){
+		return this.httpClient.get(`https://api.giphy.com/v1/gifs/search?api_key=${this.API_KEY}&q=${searchTerm}&limit=24&offset=${offset}&rating=G&lang=en`)
 	}
 }
